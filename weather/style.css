@@ -1,0 +1,110 @@
+*,
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: linear-gradient(10deg, rgb(189, 141, 141) 0%, rgb(156, 118, 120) 100%);
+    margin: 0px;
+    padding: 0px;
+}
+
+#generate {
+    display: block;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px 1px;
+    width: 10%;
+    margin: auto;
+    padding: 5px;
+    font-size: large;
+    font-style: oblique;
+}
+
+section {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+}
+
+input {
+    height: 5vh;
+}
+
+#entry {
+    border: 1px solid white;
+    background-color: peru;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+div div {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    background-color: lightgray;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+section h2 {
+    text-align: center;
+    /* color: beige; */
+    margin-bottom: 30px;
+}
+
+#data-container {
+    position: relative;
+    background-color: blanchedalmond;
+    margin: 20px auto;
+    /* margin: auto; */
+    border-radius: 10px;
+}
+
+#data-container h1,
+section h2,
+header h1 {
+    width: 30%;
+    margin: auto;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    background-color: cornflowerblue;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    /* position: relative;
+    left: 50px; */
+    box-shadow: 3px 3px 3px 2px;
+    margin-bottom: 20px;
+}
+
+.holder {
+    background-color: azure;
+    box-shadow: 2px 2px 2px 1px lightgrey;
+    color: darkcyan;
+    margin: 40px;
+}
+
+.holder div {
+    font-weight: bold;
+}
+
+.entry {
+    margin: 20px im !important;
+}

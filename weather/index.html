@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Weather App
+        </h1>
+        <p>this is weather app, you can use this tool for knowing the temperature of any city</p>
+    </header>
+    <main>
+        <section>
+            <h2>This is weather tool</h2>
+        </section>
+        <section id="entry">
+            <h2>Take a moment to enter your information</h2>
+            <div>
+                <div>
+                    <label for="zip-code">ZIP-Code:</label>
+                </div>
+                <div>
+                    <input id="zip-code" type="number" name="code" placeholder="Enter Zipcode here..">
+                    <span style="display: block; color: darkred;font-size: small;">*this is for usa only</span>
+
+                </div>
+
+            </div>
+            <div>
+                <div>
+                    <label for="city-name">City Name:</label>
+
+                </div>
+                <div>
+                    <input id="city-name" type="text" name="city" placeholder="Enter city name here..">
+                    <span style="display: block; color: darkred;font-size: small;">*this is for all the world</span>
+
+                </div>
+
+            </div>
+
+            <div>
+                <div>
+                    <label for="feeling-id">Your Fealing:</label>
+                </div>
+                <div>
+                    <textarea name="feeling" id="feeling-id" cols="30" rows="10" placeholder="Enter your feelings"></textarea>
+
+                </div>
+            </div>
+            <div>
+                <button id="generate">Generate</button>
+            </div>
+        </section>
+        <section id="data-container">
+            <h1>Recent records</h1>
+
+        </section>
+    </main>
+    <footer></footer>
+    <script src="./app.js">
+    </script>
+</body>
+
+</html>
