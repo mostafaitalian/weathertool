@@ -108,3 +108,12 @@ header h1 {
 .entry {
     margin: 20px im !important;
 }
+
+div div p {
+    color: darkslategray;
+    font-size: larger;
+}
+
+div div select {
+    width: 100%;
+}

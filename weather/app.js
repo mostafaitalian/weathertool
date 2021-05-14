@@ -1,16 +1,16 @@
 const apiKey = "&appid=c05cc07a122ee08d86c10559a61569f6";
 //get weather data from weather app map
-
-const getWeather = (baseUrl = "https://api.openweathermap.org/data/2.5/weather?", zipCode = 0, cityName = '') => {
+let systemS = '';
+const getWeather = (baseUrl = "https://api.openweathermap.org/data/2.5/weather?", zipCode = 0, cityName = '', system = '') => {
     let url = ''
         // console.log('cityName', cityName);
     if (cityName.length !== 0) {
         // url = baseUrl + "q=" + cityName + apiKey;
-        url = `${baseUrl}q=${cityName}${apiKey}`
+        url = `${baseUrl}q=${cityName}${apiKey}&units=${system}`
             // url = "https://api.openweathermap.org/data/2.5/weather?q=alexandria&appid=c05cc07a122ee08d86c10559a61569f6"
             // console.log(url)
     } else if (zipCode !== 0) {
-        url = baseUrl + "zip=" + zipCode + ",us" + apiKey;
+        url = baseUrl + "zip=" + zipCode + ",us" + apiKey + "&units=" + system;
     }
     return fetch(url)
 
@@ -78,7 +78,7 @@ function updateUi(data) {
     innerSec.appendChild(date);
 
     const temp = document.createElement('div');
-    temp.innerHTML = 'Temp: ' + (element.main.temp - 273).toFixed(1) + ' &#8451';
+    temp.innerHTML = 'Temp: ' + element.main.temp + ' &#8451';
     innerSec.appendChild(temp);
 
     const content = document.createElement('div');
@@ -123,7 +123,7 @@ function initialUi() {
             innerSec.appendChild(date);
 
             const temp = document.createElement('div')
-            temp.innerHTML = 'Temp: ' + (element.main.temp - 273).toFixed(1) + ' &#8451';
+            temp.innerHTML = 'Temp: ' + element.main.temp + ' &#8451';
             innerSec.appendChild(temp);
 
             const content = document.createElement('div')
@@ -151,6 +151,8 @@ function getInputFromDom() {
     const zipInput = document.getElementById("zip-code");
     // alert(zipInput.value)
     const favInput = document.getElementById("feeling-id");
+    const selectS = document.getElementById("type-s")
+    systemS = selectS.value;
     let cityValue, zipValue;
     //check on keydown if backspace is clicked for city input
     //disable zipcode input when you write in city input
@@ -195,8 +197,10 @@ function getInputFromDom() {
                 // console.log(zipValue)
         }
     })
-
-    //listner when you click on generate button
+    selectS.addEventListener('change', (elem, event) => {
+            systemS = this.value;
+        })
+        //listner when you click on generate button
     const btn = document.getElementById("generate")
         //listner when we click on generate button
     btn.addEventListener('click', function() {
@@ -204,7 +208,7 @@ function getInputFromDom() {
             console.log('cityValue', cityValue);
             // cityInput.value = '';
             // zipInput.value = "";
-            getWeather("https://api.openweathermap.org/data/2.5/weather?", 0, cityValue)
+            getWeather("https://api.openweathermap.org/data/2.5/weather?", 0, cityValue, systemS)
                 .then(data => data.json()).then(data => {
                     data['fav'] = favInput.value
                     favInput.value = '';
@@ -219,7 +223,7 @@ function getInputFromDom() {
             // console.log('zipValue', zipValue);
             // cityInput.value = '';
 
-            getWeather("https://api.openweathermap.org/data/2.5/weather?", zipValue, '')
+            getWeather("https://api.openweathermap.org/data/2.5/weather?", zipValue, '', systemS)
                 .then(data => data.json()).then(data => {
                     data['fav'] = favInput.value
                     favInput.value = '';
